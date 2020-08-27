@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript: To do List</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            //By default button will be disabled
+            document.querySelector("#submit_btn").disabled = true;
+            document.querySelector("#tarea_txt").onkeyup = () => {
+                if (document.querySelector("#tarea_txt") > 0){
+                    document.querySelector("#submit_btn").disabled = false;
+                }else{
+                    document.querySelector("#submit_btn").disabled = true;
+                }
+
+
+                
+            }
+
+            document.querySelector('form').onsubmit = () => {
+                const tarea=document.querySelector("#tarea_txt").value;
+                //console.log(tarea)
+                const li=document.createElement('li');
+                li.innerHTML = tarea;   
+                document.querySelector("#tareas").append(li);
+
+                
+                //Stop form from submit button
+                return false;
+            }   
+        })
+    </script>
+</head>
+<body>
+    <h1>Tareas</h1>
+    <ul id="tareas"></ul>
+    <form action="">
+        <input id="tarea_txt" placerholder="Escribe la nueva tarea" type="text">
+        <button type="submit" id="submit_btn">Agregar Tarea</button>
+    </form>
+    
+</body>
+</html>

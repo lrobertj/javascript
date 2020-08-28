@@ -4,39 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript: To do List</title>
-    <script>
-        document.addEventListener('DOMContentLoaded', function(){
-            //By default button will be disabled
-            document.querySelector("#submit_btn").disabled = true;
-            document.querySelector("#tarea_txt").onkeyup = () => {
-                if (document.querySelector("#tarea_txt") > 0){
-                    document.querySelector("#submit_btn").disabled = false;
-                }else{
-                    document.querySelector("#submit_btn").disabled = true;
-                }
-
-
-                
-            }
-
-            document.querySelector('form').onsubmit = () => {
-                const tarea=document.querySelector("#tarea_txt").value;
-                //console.log(tarea)
-                const li=document.createElement('li');
-                li.innerHTML = tarea;   
-                document.querySelector("#tareas").append(li);
-
-                
-                //Stop form from submit button
-                return false;
-            }   
-        })
-    </script>
+    <script src="hello.js"></script>
 </head>
 <body>
+    <h1>Exchange Rates</h1>
+    <ul id='currency_ul'></ul>
+        <!-- <li id='currency_li'></li> -->
+    <form action="" id="form_moneda">
+        <input type="text" name="" id="moneda_txt">
+        <button type="submit" name="moneda_btn" id="moneda_btn">Valor Moneda</button>
+    </form>
+
+    <hr style="border-block-end-color: black;">
+
+    <h1>Contador Automatico que almacena el valor</h1>
+    <h2>0</h2>
+    <button onclick="contadorn()" id="contador_btn">Contador</button>
+    <hr style="border-block-end-color: black;">
+
     <h1>Tareas</h1>
     <ul id="tareas"></ul>
-    <form action="">
+    <form action="" id="form">
         <input id="tarea_txt" placerholder="Escribe la nueva tarea" type="text">
         <button type="submit" id="submit_btn">Agregar Tarea</button>
     </form>
